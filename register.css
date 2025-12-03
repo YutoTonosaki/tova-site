@@ -1,0 +1,227 @@
+/* =========================================
+   TOVA REGISTER SYSTEM – UI V2
+   (Global.css と完全統一)
+========================================= */
+
+/* -------------------------
+   HERO SECTION
+------------------------- */
+.hero {
+  width: 100%;
+  padding: 90px 20px;
+
+  background: linear-gradient(135deg, var(--mint), var(--mint-light));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  flex-wrap: wrap;
+}
+
+.hero-content {
+  max-width: 480px;
+}
+
+.hero .page-title {
+  font-size: 46px;
+  font-weight: 900;
+  color: var(--text-dark);
+  margin-bottom: 20px;
+}
+
+.hero-subtext {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 28px;
+  color: var(--text-dark);
+}
+
+.hero-btn {
+  padding: 14px 28px;
+  font-size: 18px;
+  border-radius: var(--radius-lg);
+}
+
+.hero-img {
+  width: 100%;
+  max-width: 420px;
+  height: 260px;
+
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-strong);
+}
+
+
+/* -------------------------
+   SECTION TITLE
+------------------------- */
+.section-title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--mint-dark);
+  margin: 70px 0 40px;
+}
+
+
+/* -------------------------
+   FEATURES
+------------------------- */
+.features {
+  width: 92%;
+  margin: 0 auto;
+}
+
+.feature-grid {
+  display: grid;
+  gap: 28px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.feature-card {
+  padding: 28px;
+  background: var(--bg-white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-soft);
+  transition: 0.25s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-strong);
+}
+
+.feature-card h3 {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--mint-dark);
+  margin-bottom: 10px;
+}
+
+.feature-card p {
+  color: var(--text-light);
+}
+
+
+/* -------------------------
+   PREVIEW
+------------------------- */
+.preview {
+  width: 92%;
+  margin: 90px auto;
+  text-align: center;
+}
+
+.preview-img img {
+  width: 100%;
+  max-width: 900px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-strong);
+}
+
+
+/* -------------------------
+   HOW IT WORKS
+------------------------- */
+.how {
+  width: 92%;
+  margin: 40px auto 100px;
+}
+
+.how-steps {
+  display: grid;
+  gap: 28px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.step-card {
+  padding: 28px;
+  background: var(--bg-white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-soft);
+  transition: 0.25s ease;
+}
+
+.step-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-strong);
+}
+
+.step-card h3 {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--mint-dark);
+  margin-bottom: 10px;
+}
+
+.step-card p {
+  color: var(--text-light);
+}
+
+
+/* -------------------------
+   FAQ
+------------------------- */
+.faq {
+  width: 92%;
+  margin: 60px auto 90px;
+}
+
+.faq-list {
+  display: grid;
+  gap: 28px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.faq-item {
+  padding: 28px;
+  background: var(--bg-white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-soft);
+  transition: 0.2s;
+}
+
+.faq-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-strong);
+}
+
+.faq-item h3 {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--mint-dark);
+  margin-bottom: 10px;
+}
+
+.faq-item p {
+  color: var(--text-light);
+}
+
+
+/* -------------------------
+   CTA
+------------------------- */
+.cta {
+  text-align: center;
+  padding: 80px 20px;
+  background: var(--mint-light);
+  border-top: 1px solid var(--border-light);
+}
+
+.cta h2 {
+  font-size: 34px;
+  font-weight: 900;
+  color: var(--mint-dark);
+  margin-bottom: 24px;
+}
+
+.cta-btn {
+  padding: 16px 32px;
+  font-size: 18px;
+  border-radius: var(--radius-lg);
+}

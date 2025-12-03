@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="global.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="img/TOVA_favicon.svg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&family=Quicksand:wght@400;600;700&display=swap"
+    rel="stylesheet">
+
+  <title>TOVA - Map</title>
+  <meta name="description"
+    content="TOVA Map - Visualize your supply chain network. Track warehouses, vehicles, and traffic in real-time.">
+  <meta property="og:title" content="TOVA - Map">
+  <meta property="og:description"
+    content="Visualize your supply chain network. Track warehouses, vehicles, and traffic in real-time.">
+  <meta property="og:image" content="https://tova.inc/img/og-image.png">
+  <meta property="og:type" content="website">
+  <style>
+    /* Map Specific Styles */
+    body {
+      overflow: hidden;
+      /* Prevent scrolling for full-screen map */
+    }
+
+    .map-container {
+      position: absolute;
+      top: 80px;
+      /* Below header */
+      left: 0;
+      width: 100%;
+      height: calc(100vh - 80px);
+      z-index: 1;
+    }
+
+    #google-map {
+      width: 100%;
+      height: 100%;
+    }
+
+    .map-controls {
+      position: absolute;
+      top: 80px;
+      /* Adjusted to avoid overlap with zoom controls */
+      left: 20px;
+      width: 300px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: var(--shadow-md);
+      z-index: 9999;
+      /* High z-index to stay above Leaflet */
+      border: 1px solid var(--border-light);
+    }
+
+    .control-section {
+      margin-bottom: 20px;
+    }
+
+    .control-section h3 {
+      font-size: 14px;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 10px;
+      font-weight: 800;
+      border-bottom: 2px solid var(--yellow-accent);
+      display: inline-block;
+      padding-bottom: 4px;
+    }
+
+    .toggle-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      font-size: 14px;
+      color: var(--text-dark);
+    }
+
+    /* Toggle Switch */
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 40px;
+      height: 20px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: .4s;
+      border-radius: 34px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 16px;
+      width: 16px;
+      left: 2px;
+      bottom: 2px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+
+    input:checked+.slider {
+      background-color: var(--navy);
+    }
+
+    input:checked+.slider:before {
+      transform: translateX(20px);
+    }
+
+    .action-btn {
+      width: 100%;
+      padding: 10px;
+      background: var(--white);
+      border: 1px solid var(--navy);
+      color: var(--navy);
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-bottom: 10px;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .action-btn:hover {
+      background: var(--navy);
+      color: white;
+    }
+
+    .status-panel {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid #eee;
+    }
+
+    .status-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+      font-size: 13px;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+
+    .dot-green {
+      background: #2ecc71;
+    }
+
+    .dot-red {
+      background: #e74c3c;
+    }
+
+    .dot-yellow {
+      background: #f1c40f;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <img src="img/tova-logo.svg" alt="TOVA Logo" />
+    </div>
+    <div class="auth-buttons" style="display: flex; align-items: center; gap: 10px;">
+      <select id="lang-selector" onchange="changeLanguage(this.value)"
+        style="padding: 6px; border-radius: 6px; border: 1px solid #ccc; font-size: 14px;">
+        <option value="en">English</option>
+        <option value="ja">日本語</option>
+        <option value="ko">한국어</option>
+        <option value="zh">中文</option>
+      </select>
+      <a href="index.html" class="btn btn-outline" style="font-size: 14px;">Back to Portal</a>
+    </div>
+  </header>
+
+  <nav class="portal-nav">
+    <a href="index.html"><i class="fa-solid fa-house"></i> <span data-i18n="nav.home">Home</span></a>
+    <a href="cafe.html"><i class="fa-solid fa-mug-hot"></i> <span data-i18n="nav.cafe">Cafe</span></a>
+    <a href="blog.html"><i class="fa-solid fa-pen-nib"></i> <span data-i18n="nav.blog">Blog</span></a>
+    <a href="shopping.html"><i class="fa-solid fa-bag-shopping"></i> <span data-i18n="nav.shopping">Shopping</span></a>
+    <a href="news.html"><i class="fa-solid fa-newspaper"></i> <span data-i18n="nav.news">News</span></a>
+    <a href="map.html" class="active"><i class="fa-solid fa-map"></i> <span data-i18n="nav.map">Map</span></a>
+  </nav>
+
+  <div class="map-container">
+    <div id="google-map"></div>
+
+    <div class="map-controls">
+      <div class="control-section">
+        <h3>Layers</h3>
+        <div class="toggle-item">
+          <span><i class="fa-solid fa-warehouse"></i> Warehouses</span>
+          <label class="switch">
+            <input type="checkbox" checked id="toggle-warehouses">
+            <span class="slider"></span>
+          </label>
+        </div>
+        <div class="toggle-item">
+          <span><i class="fa-solid fa-truck"></i> Vehicles</span>
+          <label class="switch">
+            <input type="checkbox" checked id="toggle-vehicles">
+            <span class="slider"></span>
+          </label>
+        </div>
+        <div class="toggle-item">
+          <span><i class="fa-solid fa-traffic-light"></i> Traffic</span>
+          <label class="switch">
+            <input type="checkbox" id="toggle-traffic">
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="control-section">
+        <h3>Tools</h3>
+        <button class="action-btn" id="btn-optimize">
+          <i class="fa-solid fa-route"></i> Optimize Route
+        </button>
+        <button class="action-btn" id="btn-analysis">
+          <i class="fa-solid fa-chart-pie"></i> Area Analysis (5km)
+        </button>
+      </div>
+
+      <div class="status-panel">
+        <div class="status-item">
+          <div class="status-dot dot-green"></div> Normal Operation
+        </div>
+        <div class="status-item">
+          <div class="status-dot dot-yellow"></div> Minor Delays
+        </div>
+        <div class="status-item">
+          <div class="status-dot dot-red"></div> Heavy Traffic
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+  <script src="https://kit.fontawesome.com/efe6c5ccc5.js" crossorigin="anonymous"></script>
+  <script type="module" src="js/map-manager.js"></script>
+  <script type="module" src="js/language-manager.js"></script>
+  <script type="module" src="js/translations.js"></script>
+  <script src="js/tova-boot.js" type="module"></script>
+</body>
+
+</html>

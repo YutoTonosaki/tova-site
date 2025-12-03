@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="global.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="img/TOVA_favicon.svg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&family=Quicksand:wght@400;600;700&display=swap"
+    rel="stylesheet">
+
+  <title>TOVA - Shopping</title>
+  <meta name="description" content="TOVA Store - Curated tech, lifestyle, and apparel.">
+  <meta property="og:title" content="TOVA - Shopping">
+  <meta property="og:description" content="Curated tech, lifestyle, and apparel.">
+  <meta property="og:image" content="https://tova.inc/img/og-image.png">
+  <meta property="og:type" content="website">
+  <style>
+    .shop-container {
+      width: 92%;
+      max-width: 1200px;
+      margin: 0 auto;
+      margin-top: 26px;
+    }
+
+    .shop-hero {
+      background: linear-gradient(135deg, #8e44ad, #3498db);
+      color: white;
+      padding: 40px;
+      border-radius: var(--radius-lg);
+      margin-bottom: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: var(--shadow-md);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .shop-tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 30px;
+      overflow-x: auto;
+      padding-bottom: 5px;
+      justify-content: center;
+    }
+
+    .shop-tab {
+      padding: 10px 25px;
+      border-radius: 30px;
+      background: white;
+      border: 1px solid var(--border-light);
+      cursor: pointer;
+      font-weight: 700;
+      color: #666;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .shop-tab:hover {
+      background: #f9f9f9;
+      color: var(--navy);
+      transform: translateY(-2px);
+    }
+
+    .shop-tab.active {
+      background: var(--navy);
+      color: white;
+      border-color: var(--navy);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .shop-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 25px;
+      margin-bottom: 60px;
+    }
+
+    .shop-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      transition: transform 0.3s ease;
+      border: 1px solid transparent;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .shop-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--border-light);
+    }
+
+    .shop-image-container {
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .shop-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .shop-card:hover .shop-image {
+      transform: scale(1.05);
+    }
+
+    .shop-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--navy);
+      text-transform: uppercase;
+    }
+
+    .shop-content {
+      padding: 20px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .shop-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 10px;
+    }
+
+    .shop-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--navy);
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    .shop-price {
+      font-weight: 800;
+      color: var(--yellow-accent);
+      font-size: 16px;
+      white-space: nowrap;
+      margin-left: 10px;
+    }
+
+    .shop-desc {
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 15px;
+      flex-grow: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <img src="img/tova-logo.svg" alt="TOVA Logo" />
+    </div>
+    <div class="auth-buttons" style="display: flex; align-items: center; gap: 10px;">
+      <select id="lang-selector" onchange="changeLanguage(this.value)"
+        style="padding: 6px; border-radius: 6px; border: 1px solid #ccc; font-size: 14px;">
+        <option value="en">English</option>
+        <option value="ja">日本語</option>
+        <option value="ko">한국어</option>
+        <option value="zh">中文</option>
+      </select>
+      <a href="index.html" class="btn btn-outline" style="font-size: 14px;">Back to Portal</a>
+    </div>
+  </header>
+
+  <nav class="portal-nav">
+    <a href="index.html"><i class="fa-solid fa-house"></i> <span data-i18n="nav.home">Home</span></a>
+    <a href="cafe.html"><i class="fa-solid fa-mug-hot"></i> <span data-i18n="nav.cafe">Cafe</span></a>
+    <a href="blog.html"><i class="fa-solid fa-pen-nib"></i> <span data-i18n="nav.blog">Blog</span></a>
+    <a href="shopping.html" class="active"><i class="fa-solid fa-bag-shopping"></i> <span
+        data-i18n="nav.shopping">Shopping</span></a>
+    <a href="news.html"><i class="fa-solid fa-newspaper"></i> <span data-i18n="nav.news">News</span></a>
+    <a href="map.html"><i class="fa-solid fa-map"></i> <span data-i18n="nav.map">Map</span></a>
+  </nav>
+
+  <div class="shop-container">
+    <div class="shop-hero">
+      <div
+        style="position: absolute; top: 10px; left: 10px; background: rgba(0,0,0,0.3); padding: 2px 8px; border-radius: 4px; font-size: 10px; color: white; font-weight: 600;">
+        PR / Promotion
+      </div>
+      <div>
+        <h1 style="margin: 0 0 10px 0;">TOVA Store</h1>
+        <p style="margin: 0; opacity: 0.9;">Premium Gear for Your Lifestyle.</p>
+      </div>
+      <i class="fa-solid fa-bag-shopping" style="font-size: 50px; opacity: 0.3;"></i>
+    </div>
+
+    <div class="shop-tabs">
+      <div class="shop-tab active" data-category="All">All Items</div>
+      <div class="shop-tab" data-category="Tech">Tech & Desk</div>
+      <div class="shop-tab" data-category="Lifestyle">Lifestyle</div>
+      <div class="shop-tab" data-category="Apparel">Apparel</div>
+    </div>
+
+    <div class="shop-list">
+      <!-- Injected by JS -->
+      <div style="text-align: center; padding: 40px; color: #888;">Loading products...</div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="social-links">
+      <a href="#" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+      <a href="#" target="_blank" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+      <a href="#" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+      <a href="#" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#" target="_blank" aria-label="LINE"><i class="fa-brands fa-line"></i></a>
+      <a href="#" target="_blank" aria-label="KakaoTalk"><i class="fa-solid fa-comment"></i></a>
+      <a href="#" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+    </div>
+    <a href="company.html">Company</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="api.html">API</a>
+    <a href="blog.html">Dev Blog</a>
+    <a href="contact.html">Contact</a>
+    <br>
+    <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a>
+    <br><br>
+    © 2025 TOVA Inc. All rights reserved.
+  </footer>
+
+  <script src="https://kit.fontawesome.com/efe6c5ccc5.js" crossorigin="anonymous"></script>
+  <script type="module" src="js/shopping-renderer.js"></script>
+  <script type="module" src="js/language-manager.js"></script>
+  <script type="module" src="js/translations.js"></script>
+  <script src="js/tova-boot.js" type="module"></script>
+</body>
+
+</html>

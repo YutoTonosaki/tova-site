@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Page not found.">
+  <link rel="stylesheet" href="global.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="img/TOVA_favicon.svg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&family=Quicksand:wght@400;600;700&display=swap"
+    rel="stylesheet">
+
+  <title>404 - Page Not Found | TOVA</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background: var(--bg-light);
+    }
+
+    .error-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .error-code {
+      font-size: 120px;
+      font-weight: 900;
+      color: var(--navy);
+      line-height: 1;
+      margin-bottom: 20px;
+      text-shadow: 4px 4px 0px var(--yellow-accent);
+    }
+
+    .error-message {
+      font-size: 24px;
+      color: var(--text-dark);
+      margin-bottom: 40px;
+      max-width: 500px;
+    }
+
+    .home-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--navy);
+      color: white;
+      padding: 15px 30px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-md);
+    }
+
+    .home-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+      background: #1a2f4b;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <a href="index.html"><img src="img/tova-logo.svg" alt="TOVA Logo" /></a>
+    </div>
+  </header>
+
+  <div class="error-container">
+    <div class="error-code">404</div>
+    <h1 class="error-message">Oops! The page you are looking for seems to have gone off-grid.</h1>
+    <p style="margin-bottom: 30px; color: var(--text-gray);">It might have been moved, deleted, or never existed.</p>
+    <a href="index.html" class="home-btn">
+      <i class="fa-solid fa-house"></i> Return Home
+    </a>
+  </div>
+
+  <footer>
+    <div class="social-links">
+      <a href="#" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+      <a href="#" target="_blank" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+      <a href="#" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+      <a href="#" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#" target="_blank" aria-label="LINE"><i class="fa-brands fa-line"></i></a>
+      <a href="#" target="_blank" aria-label="KakaoTalk"><i class="fa-solid fa-comment"></i></a>
+      <a href="#" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+    </div>
+    <a href="company.html">Company</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="api.html">API</a>
+    <a href="blog.html">Dev Blog</a>
+    <a href="contact.html">Contact</a>
+    <br>
+    <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a>
+    <br><br>
+    © 2025 TOVA Inc. All rights reserved.
+  </footer>
+
+  <script src="https://kit.fontawesome.com/efe6c5ccc5.js" crossorigin="anonymous"></script>
+  <script src="js/tova-boot.js" type="module"></script>
+</body>
+
+</html>

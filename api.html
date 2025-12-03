@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="global.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="img/TOVA_favicon.svg">
+
+  <!-- Google Fonts: Outfit & Quicksand -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&family=Quicksand:wght@400;600;700&display=swap"
+    rel="stylesheet">
+
+  <title>TOVA - API</title>
+  <meta name="description"
+    content="TOVA API Documentation. Integrate our powerful logistics capabilities into your own applications.">
+  <meta property="og:title" content="TOVA - API">
+  <meta property="og:description" content="Integrate our powerful logistics capabilities into your own applications.">
+  <meta property="og:image" content="https://tova.inc/img/og-image.png">
+  <meta property="og:type" content="website">
+  <style>
+    .api-hero {
+      background: linear-gradient(135deg, var(--navy), var(--navy-dark));
+      color: white;
+      padding: 80px 20px;
+      text-align: center;
+      border-radius: 0 0 50px 50px;
+      margin-bottom: 60px;
+    }
+
+    .api-hero h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      color: white;
+    }
+
+    .api-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 20px 100px;
+    }
+
+    .api-section {
+      margin-bottom: 60px;
+    }
+
+    .api-section h2 {
+      font-size: 32px;
+      color: var(--navy);
+      margin-bottom: 20px;
+      border-bottom: 2px solid var(--yellow-accent);
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
+    .api-card {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: var(--shadow-medium);
+      border: 1px solid var(--border-light);
+      margin-bottom: 20px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .api-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--mint-light);
+      color: var(--mint-dark);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+
+    .code-block {
+      background: #1e1e1e;
+      color: #d4d4d4;
+      padding: 20px;
+      border-radius: 12px;
+      font-family: 'Courier New', Courier, monospace;
+      overflow-x: auto;
+      margin-top: 20px;
+    }
+
+    .cta-box {
+      background: var(--navy);
+      color: white;
+      padding: 60px;
+      border-radius: 20px;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .cta-box h2 {
+      color: white;
+      border: none;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <a href="index.html"><img src="img/tova-logo.svg" alt="TOVA Logo" /></a>
+    </div>
+    <div class="auth-buttons">
+      <a href="index.html" class="btn btn-outline" style="border: none;">Back to Home</a>
+    </div>
+  </header>
+
+  <div class="api-hero">
+    <h1>TOVA API for Developers</h1>
+    <p>Integrate powerful logistics capabilities into your applications.</p>
+  </div>
+
+  <div class="api-container">
+
+    <!-- Overview -->
+    <div class="api-section">
+      <h2>API Overview</h2>
+      <p style="font-size: 18px; line-height: 1.8; color: var(--text-dark);">
+        The TOVA API allows you to programmatically access and control your logistics data.
+        Whether you need to sync inventory, track shipments, or analyze warehouse performance, our RESTful API provides
+        the tools you need.
+      </p>
+    </div>
+
+    <!-- Features -->
+    <div class="api-section">
+      <h2>Key Capabilities</h2>
+
+      <div class="api-card">
+        <div class="api-icon"><i class="fa-solid fa-boxes-stacked"></i></div>
+        <div>
+          <h3>Inventory Management</h3>
+          <p>Real-time read/write access to stock levels across all warehouses. Sync with your ERP or e-commerce
+            platform instantly.</p>
+        </div>
+      </div>
+
+      <div class="api-card">
+        <div class="api-icon"><i class="fa-solid fa-truck-fast"></i></div>
+        <div>
+          <h3>Shipment Tracking</h3>
+          <p>Create shipments, generate labels, and retrieve real-time tracking status updates via webhooks.</p>
+        </div>
+      </div>
+
+      <div class="api-card">
+        <div class="api-icon"><i class="fa-solid fa-chart-pie"></i></div>
+        <div>
+          <h3>Analytics Data</h3>
+          <p>Extract raw performance data for custom reporting and business intelligence integration.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Code Example -->
+    <div class="api-section">
+      <h2>Example Request</h2>
+      <p>Fetching inventory levels for a specific product.</p>
+      <div class="code-block">
+        curl -X GET https://api.tova.inc/v1/inventory/prod_12345 \
+        -H "Authorization: Bearer YOUR_API_KEY" \
+        -H "Content-Type: application/json"
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-box">
+      <h2>Ready to build?</h2>
+      <p style="margin-bottom: 30px; opacity: 0.9;">Get your API key and start testing in our sandbox environment.</p>
+      <div style="display: flex; gap: 15px; justify-content: center;">
+        <a href="#" class="btn btn-mint" style="background: var(--yellow-accent); color: var(--navy);">Get API Key</a>
+        <a href="#" class="btn btn-outline" style="border-color: white; color: white;">View Documentation</a>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="social-links">
+      <a href="#" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+      <a href="#" target="_blank" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+      <a href="#" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+      <a href="#" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#" target="_blank" aria-label="LINE"><i class="fa-brands fa-line"></i></a>
+      <a href="#" target="_blank" aria-label="KakaoTalk"><i class="fa-solid fa-comment"></i></a>
+      <a href="#" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+    </div>
+    <a href="company.html">Company</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="api.html">API</a>
+    <a href="blog.html">Dev Blog</a>
+    <a href="contact.html">Contact</a>
+    <br>
+    <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a>
+    <br><br>
+    © 2025 TOVA Inc. All rights reserved.
+  </footer>
+
+  <script src="https://kit.fontawesome.com/efe6c5ccc5.js" crossorigin="anonymous"></script>
+  <script src="js/tova-boot.js" type="module"></script>
+</body>
+
+</html>

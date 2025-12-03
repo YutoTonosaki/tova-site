@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="global.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="img/TOVA_favicon.svg">
+
+  <!-- Google Fonts: Outfit & Quicksand -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&family=Quicksand:wght@400;600;700&display=swap"
+    rel="stylesheet">
+
+  <title>TOVA - Careers</title>
+  <meta name="description"
+    content="Join TOVA Inc. and help us build the future of logistics. View open positions and subscribe for career updates.">
+  <meta property="og:title" content="TOVA - Careers">
+  <meta property="og:description" content="Join TOVA Inc. and help us build the future of logistics.">
+  <meta property="og:image" content="https://tova.inc/img/og-image.png">
+  <meta property="og:type" content="website">
+  <style>
+    .career-hero {
+      background: linear-gradient(135deg, var(--navy), var(--navy-dark));
+      color: white;
+      padding: 80px 20px;
+      text-align: center;
+      border-radius: 0 0 50px 50px;
+      margin-bottom: 60px;
+    }
+
+    .career-hero h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      color: white;
+    }
+
+    .career-hero p {
+      font-size: 18px;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .career-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px 100px;
+      text-align: center;
+    }
+
+    .no-positions-card {
+      background: white;
+      border-radius: 20px;
+      padding: 60px 40px;
+      box-shadow: var(--shadow-medium);
+      border: 1px solid var(--border-light);
+    }
+
+    .no-positions-icon {
+      font-size: 60px;
+      color: var(--text-light);
+      margin-bottom: 20px;
+    }
+
+    .no-positions-card h2 {
+      font-size: 28px;
+      color: var(--navy);
+      margin-bottom: 15px;
+    }
+
+    .no-positions-card p {
+      font-size: 16px;
+      color: var(--text-dark);
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+
+    .notify-form {
+      max-width: 400px;
+      margin: 0 auto;
+      display: flex;
+      gap: 10px;
+    }
+
+    .notify-input {
+      flex: 1;
+      padding: 12px 16px;
+      border: 1px solid var(--border-light);
+      border-radius: 50px;
+      font-size: 14px;
+    }
+
+    .notify-btn {
+      padding: 12px 24px;
+      background: var(--navy);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .notify-btn:hover {
+      background: var(--navy-dark);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <a href="index.html"><img src="img/tova-logo.svg" alt="TOVA Logo" /></a>
+    </div>
+    <div class="auth-buttons">
+      <a href="company.html" class="btn btn-outline" style="border: none;">Back to Company</a>
+    </div>
+  </header>
+
+  <div class="career-hero">
+    <h1>Careers at TOVA</h1>
+    <p>Join us in redefining the future of logistics.</p>
+  </div>
+
+  <div class="career-container">
+    <div class="no-positions-card">
+      <div class="no-positions-icon">
+        <i class="fa-solid fa-briefcase"></i>
+      </div>
+      <h2>No Open Positions Currently</h2>
+      <p>
+        Thank you for your interest in TOVA Inc.<br>
+        We are not hiring at the moment, but we are always looking for talented individuals.<br>
+        Please check back later or subscribe to our newsletter for updates.
+      </p>
+
+      <form class="notify-form" id="notify-form" style="flex-direction: column; gap: 15px;">
+        <div style="display: flex; gap: 10px; width: 100%;">
+          <input type="email" class="notify-input" id="notify-email" placeholder="Enter your email for updates..."
+            required>
+          <button type="submit" class="notify-btn">Notify Me</button>
+        </div>
+        <!-- reCAPTCHA Widget (Test Key) -->
+        <!-- Note: This is a Google-provided test key. It will show a warning but works for testing. -->
+        <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" style="align-self: center;">
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <div class="social-links">
+      <a href="#" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+      <a href="#" target="_blank" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+      <a href="#" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+      <a href="#" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#" target="_blank" aria-label="LINE"><i class="fa-brands fa-line"></i></a>
+      <a href="#" target="_blank" aria-label="KakaoTalk"><i class="fa-solid fa-comment"></i></a>
+      <a href="#" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+    </div>
+    <a href="company.html">Company</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="api.html">API</a>
+    <a href="blog.html">Dev Blog</a>
+    <a href="contact.html">Contact</a>
+    <br>
+    <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a>
+    <br><br>
+    © 2025 TOVA Inc. All rights reserved.
+  </footer>
+
+  <script src="https://kit.fontawesome.com/efe6c5ccc5.js" crossorigin="anonymous"></script>
+  <!-- EmailJS SDK -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function () {
+      emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS Public Key
+    })();
+  </script>
+
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <script type="module">
+    import { db } from "./firebase-config.js";
+    import { collection, addDoc, serverTimestamp, query, where, getDocs } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
+
+
+    // Revert UI on error
+    notifyBtn.textContent = originalText;
+    notifyBtn.disabled = false;
+    notifyBtn.style.opacity = '1';
+    grecaptcha.reset(); // Reset captcha on error too
+          }
+        });
+      }
+    });
+  </script>
+  <script src="js/tova-boot.js" type="module"></script>
+</body>
+
+</html>

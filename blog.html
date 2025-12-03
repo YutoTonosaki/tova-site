@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="global.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="img/TOVA_favicon.svg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&family=Quicksand:wght@400;600;700&display=swap"
+    rel="stylesheet">
+
+  <title>TOVA - Blog</title>
+  <meta name="description"
+    content="TOVA Blog - Insights on logistics technology, case studies, and engineering challenges.">
+  <meta property="og:title" content="TOVA - Blog">
+  <meta property="og:description" content="Insights on logistics technology, case studies, and engineering challenges.">
+  <meta property="og:image" content="https://tova.inc/img/og-image.png">
+  <meta property="og:type" content="website">
+  <style>
+    /* Blog Specific Styles */
+    .blog-container {
+      width: 92%;
+      max-width: 1200px;
+      margin: 0 auto;
+      margin-top: 26px;
+    }
+
+    .blog-hero {
+      background: linear-gradient(135deg, var(--navy), #1a2f4b);
+      color: white;
+      padding: 40px;
+      border-radius: var(--radius-lg);
+      margin-bottom: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: var(--shadow-md);
+    }
+
+    .blog-tabs {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 15px;
+      overflow-x: auto;
+    }
+
+    .blog-tab {
+      padding: 10px 20px;
+      border-radius: 50px;
+      background: white;
+      border: 1px solid var(--border-light);
+      cursor: pointer;
+      font-weight: 600;
+      color: #666;
+      transition: all 0.2s;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .blog-tab:hover {
+      background: #f9f9f9;
+      color: var(--navy);
+    }
+
+    .blog-tab.active {
+      background: var(--navy);
+      color: white;
+      border-color: var(--navy);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .blog-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      transition: transform 0.3s ease;
+      border: 1px solid transparent;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--yellow-accent);
+    }
+
+    .blog-image {
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+      background-color: #eee;
+    }
+
+    .blog-content {
+      padding: 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .blog-category {
+      font-size: 11px;
+      text-transform: uppercase;
+      color: var(--navy);
+      font-weight: 800;
+      margin-bottom: 8px;
+      letter-spacing: 0.5px;
+    }
+
+    .blog-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin: 0 0 10px 0;
+      line-height: 1.4;
+    }
+
+    .blog-summary {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 15px;
+      flex: 1;
+    }
+
+    .blog-meta {
+      font-size: 12px;
+      color: #999;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #eee;
+      padding-top: 15px;
+    }
+
+    @media (max-width: 768px) {
+      .blog-hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px;
+      }
+
+      .blog-hero i {
+        margin-top: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <img src="img/tova-logo.svg" alt="TOVA Logo" />
+    </div>
+    <div class="auth-buttons" style="display: flex; align-items: center; gap: 10px;">
+      <select id="lang-selector" onchange="changeLanguage(this.value)"
+        style="padding: 6px; border-radius: 6px; border: 1px solid #ccc; font-size: 14px;">
+        <option value="en">English</option>
+        <option value="ja">日本語</option>
+        <option value="ko">한국어</option>
+        <option value="zh">中文</option>
+      </select>
+      <a href="index.html" class="btn btn-outline" style="font-size: 14px;">Back to Portal</a>
+    </div>
+  </header>
+
+  <nav class="portal-nav">
+    <a href="index.html"><i class="fa-solid fa-house"></i> <span data-i18n="nav.home">Home</span></a>
+    <a href="cafe.html"><i class="fa-solid fa-mug-hot"></i> <span data-i18n="nav.cafe">Cafe</span></a>
+    <a href="blog.html" class="active"><i class="fa-solid fa-pen-nib"></i> <span data-i18n="nav.blog">Blog</span></a>
+    <a href="shopping.html"><i class="fa-solid fa-bag-shopping"></i> <span data-i18n="nav.shopping">Shopping</span></a>
+    <a href="news.html"><i class="fa-solid fa-newspaper"></i> <span data-i18n="nav.news">News</span></a>
+    <a href="map.html"><i class="fa-solid fa-map"></i> <span data-i18n="nav.map">Map</span></a>
+  </nav>
+
+  <div class="blog-container">
+    <div class="blog-hero">
+      <div>
+        <h1 style="margin: 0 0 10px 0;">TOVA Blog</h1>
+        <p style="margin: 0; opacity: 0.8;">Insights, Stories, and Tech from the Logistics Frontier.</p>
+      </div>
+      <i class="fa-solid fa-pen-nib" style="font-size: 50px; opacity: 0.2;"></i>
+    </div>
+
+    <div class="blog-tabs" id="blog-tabs">
+      <div class="blog-tab active" data-category="all">
+        <i class="fa-solid fa-layer-group"></i> All Posts
+      </div>
+      <!-- Categories injected by JS -->
+    </div>
+
+    <div id="blog-grid" class="blog-grid">
+      <!-- Posts injected by JS -->
+    </div>
+  </div>
+
+  <footer>
+    <div class="social-links">
+      <a href="#" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+      <a href="#" target="_blank" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+      <a href="#" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+      <a href="#" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#" target="_blank" aria-label="LINE"><i class="fa-brands fa-line"></i></a>
+      <a href="#" target="_blank" aria-label="KakaoTalk"><i class="fa-solid fa-comment"></i></a>
+      <a href="#" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+    </div>
+    <a href="company.html">Company</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="api.html">API</a>
+    <a href="blog.html">Dev Blog</a>
+    <a href="contact.html">Contact</a>
+    <br>
+    <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a>
+    <br><br>
+    © 2025 TOVA Inc. All rights reserved.
+  </footer>
+
+  <script src="https://kit.fontawesome.com/efe6c5ccc5.js" crossorigin="anonymous"></script>
+  <script type="module" src="js/blog-renderer.js"></script>
+  <script type="module" src="js/language-manager.js"></script>
+  <script type="module" src="js/translations.js"></script>
+  <script src="js/tova-boot.js" type="module"></script>
+</body>
+
+</html>
