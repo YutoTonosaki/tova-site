@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="global.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="img/TOVA_favicon.svg">
+
+  <!-- Google Fonts: Outfit & Quicksand -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&family=Quicksand:wght@400;600;700&display=swap"
+    rel="stylesheet">
+
+  <title>TOVA - Company</title>
+  <meta name="description"
+    content="About TOVA Inc. - Redefining the future of logistics with AI-driven solutions. Learn about our vision, history, and team.">
+  <meta property="og:title" content="TOVA - Company">
+  <meta property="og:description" content="Redefining the future of logistics with AI-driven solutions.">
+  <meta property="og:image" content="https://tova.inc/img/og-image.png">
+  <meta property="og:type" content="website">
+  <style>
+    .company-hero {
+      background: linear-gradient(135deg, var(--navy), var(--navy-dark));
+      color: white;
+      padding: 80px 20px;
+      text-align: center;
+      border-radius: 0 0 50px 50px;
+      margin-bottom: 60px;
+    }
+
+    .company-hero h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      color: white;
+    }
+
+    .company-hero p {
+      font-size: 18px;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .section-title-center {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 40px;
+      color: var(--navy);
+      position: relative;
+      display: inline-block;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .section-title-center::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: var(--yellow-accent);
+      margin: 10px auto 0;
+      border-radius: 2px;
+    }
+
+    .company-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 20px 80px;
+    }
+
+    /* Vision Card */
+    .vision-card {
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: var(--shadow-medium);
+      text-align: center;
+      margin-bottom: 60px;
+      border: 1px solid var(--border-light);
+    }
+
+    .vision-card h3 {
+      font-size: 24px;
+      color: var(--navy);
+      margin-bottom: 20px;
+    }
+
+    .vision-card p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--text-dark);
+    }
+
+    /* Table */
+    .company-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      margin-bottom: 60px;
+    }
+
+    .company-table th,
+    .company-table td {
+      padding: 20px;
+      text-align: left;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .company-table th {
+      background: var(--mint-light);
+      color: var(--navy);
+      width: 30%;
+      font-weight: 700;
+    }
+
+    .company-table tr:last-child td,
+    .company-table tr:last-child th {
+      border-bottom: none;
+    }
+
+    /* Timeline */
+    .timeline {
+      position: relative;
+      padding-left: 30px;
+      border-left: 2px solid var(--border-light);
+      margin-bottom: 60px;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 30px;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -36px;
+      top: 5px;
+      width: 14px;
+      height: 14px;
+      background: var(--yellow-accent);
+      border-radius: 50%;
+      border: 2px solid white;
+      box-shadow: 0 0 0 2px var(--yellow-accent);
+    }
+
+    .timeline-date {
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 5px;
+    }
+
+    .timeline-content {
+      background: white;
+      padding: 15px 20px;
+      border-radius: 12px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--border-light);
+    }
+
+    /* Career */
+    .career-card {
+      background: var(--navy);
+      color: white;
+      border-radius: 20px;
+      padding: 40px;
+      text-align: center;
+      box-shadow: var(--shadow-medium);
+    }
+
+    .career-card h3 {
+      color: white;
+      margin-bottom: 15px;
+    }
+
+    .career-card p {
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <a href="index.html"><img src="img/tova-logo.svg" alt="TOVA Logo" /></a>
+    </div>
+    <div class="auth-buttons">
+      <a href="index.html" class="btn btn-outline" style="border: none;">Back to Home</a>
+    </div>
+  </header>
+
+  <div class="company-hero">
+    <h1>About TOVA</h1>
+    <p>Redefining Logistics Management for the Future.</p>
+  </div>
+
+  <div class="company-container">
+
+    <!-- Vision / Mission -->
+    <section>
+      <h2 class="section-title-center">Vision & Mission</h2>
+      <div class="vision-card">
+        <h3>"Logistics as a Service, Simplified."</h3>
+        <p>
+          TOVAは、複雑化する現代の物流課題をテクノロジーの力で解決します。<br>
+          私たちのミッションは、すべての企業がAmazonのような高度な物流システムを<br>
+          「誰でも」「簡単に」「安価に」利用できる世界を作ることです。<br><br>
+          AIによる予測、クラウドによる一元管理、そして直感的なUI。<br>
+          これらを融合させ、物流をコストセンターから「成長のエンジン」へと変革します。
+        </p>
+      </div>
+    </section>
+
+    <!-- Company Overview -->
+    <section>
+      <h2 class="section-title-center">Company Overview</h2>
+      <table class="company-table">
+        <tr>
+          <th>Company Name</th>
+          <td>TOVA Inc.</td>
+        </tr>
+        <tr>
+          <th>Founded</th>
+          <td>October 1, 2025</td>
+        </tr>
+        <tr>
+          <th>Representative</th>
+          <td>CEO Jang Min</td>
+        </tr>
+        <tr>
+          <th>Headquarters</th>
+          <td>Shibuya Scramble Square 39F, 2-24-12 Shibuya, Tokyo, Japan</td>
+        </tr>
+        <tr>
+          <th>Capital</th>
+          <td>100,000,000 JPY</td>
+        </tr>
+        <tr>
+          <th>Business</th>
+          <td>Development and operation of Logistics SaaS "TOVA"<br>Supply Chain Consulting</td>
+        </tr>
+      </table>
+    </section>
+
+    <!-- History -->
+    <section>
+      <h2 class="section-title-center">History</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">2023.10</div>
+          <div class="timeline-content">Founded TOVA Inc. in Vancouver, Canada.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2024.04</div>
+          <div class="timeline-content">Released "TOVA Register System" (Beta).</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2024.08</div>
+          <div class="timeline-content">Raised Series A funding (300M JPY).</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2025.01</div>
+          <div class="timeline-content">Launched "TOVA Schedule App" and "AI Assistant".</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2025.06</div>
+          <div class="timeline-content">Expanded to Global Markets (US, Canada, Korea, Japan).</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Career -->
+    <section>
+      <h2 class="section-title-center">Career</h2>
+      <div class="career-card">
+        <h3>Join Our Team</h3>
+        <p>
+          We are looking for passionate engineers, designers, and logistics experts.<br>
+          Let's build the future of logistics together.
+        </p>
+        <a href="careers.html" class="btn btn-mint" style="background: var(--yellow-accent); color: var(--navy);">View
+          Open
+          Positions</a>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <div class="social-links">
+      <a href="#" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+      <a href="#" target="_blank" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+      <a href="#" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+      <a href="#" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#" target="_blank" aria-label="LINE"><i class="fa-brands fa-line"></i></a>
+      <a href="#" target="_blank" aria-label="KakaoTalk"><i class="fa-solid fa-comment"></i></a>
+      <a href="#" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+    </div>
+    <a href="company.html">Company</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="api.html">API</a>
+    <a href="blog.html">Dev Blog</a>
+    <a href="contact.html">Contact</a>
+    <br>
+    <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a>
+    <br><br>
+    © 2025 TOVA Inc. All rights reserved.
+  </footer>
+
+  <script src="https://kit.fontawesome.com/efe6c5ccc5.js" crossorigin="anonymous"></script>
+  <script src="js/tova-boot.js" type="module"></script>
+</body>
+
+</html>

@@ -1,0 +1,192 @@
+/* schedule.css */
+
+/* HERO */
+.schedule-hero {
+  width: 92%;
+  margin: 50px auto;
+  padding: 60px;
+  background: linear-gradient(135deg, var(--mint-light), #ffffff);
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--shadow-soft);
+}
+
+.hero-inner {
+  flex: 1.2;
+}
+
+.hero-title {
+  font-size: 42px;
+  font-weight: 800;
+  color: var(--mint-dark);
+}
+
+.hero-desc {
+  font-size: 18px;
+  color: var(--text-light);
+  margin: 16px 0 30px;
+}
+
+.hero-btn {
+  padding: 14px 28px;
+  font-size: 18px;
+}
+
+.hero-graphic {
+  flex: 1;
+  height: 260px;
+  border-radius: 20px;
+  background: url("https://via.placeholder.com/600x260?text=Schedule+App+Mockup") center/cover no-repeat;
+}
+
+/* HIGHLIGHTS */
+.highlights {
+  width: 92%;
+  margin: 80px auto;
+}
+
+.highlight-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 26px;
+}
+
+.highlight-card {
+  text-align: center;
+  padding: 30px;
+}
+
+.highlight-icon {
+  font-size: 36px;
+  color: var(--mint-dark);
+  margin-bottom: 12px;
+}
+
+/* PREVIEW */
+.schedule-preview {
+  text-align: center;
+}
+
+.preview-box img {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: var(--shadow-medium);
+}
+
+/* HOW SECTION */
+.how-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 26px;
+}
+
+/* CTA */
+.schedule-cta {
+  text-align: center;
+  padding: 60px;
+  background: var(--mint-light);
+  border-radius: 20px;
+  margin: 60px auto;
+  box-shadow: var(--shadow-soft);
+}
+
+.cta-btn {
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .schedule-hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-graphic {
+    width: 100%;
+    height: 220px;
+    margin-top: 30px;
+  }
+
+  .hero-title {
+    font-size: 32px;
+  }
+}
+
+/* Todo List Styles */
+.todo-section {
+  padding: 40px 0;
+}
+
+.todo-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+.todo-input-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 12px;
+  margin-bottom: 10px;
+  transition: all 0.2s ease;
+}
+
+.todo-item:hover {
+  background: rgba(255, 255, 255, 0.9);
+  transform: translateX(5px);
+}
+
+.todo-item.completed .task-text {
+  text-decoration: line-through;
+  color: #888;
+}
+
+.task-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-check,
+.btn-delete {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.btn-check {
+  color: var(--mint-dark);
+}
+
+.btn-check:hover {
+  background: var(--mint-light);
+}
+
+.btn-delete {
+  color: #ff6b6b;
+}
+
+.btn-delete:hover {
+  background: #ffe3e3;
+}

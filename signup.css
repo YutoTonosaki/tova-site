@@ -1,0 +1,115 @@
+/* =========================================
+   TOVA SIGNUP PAGE — UI V2
+   (Your signup.html に完全対応)
+========================================= */
+
+/* Wrapper */
+.signup-wrapper {
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(180deg, #f5fafa, #e8f9f8);
+  padding: 40px 20px;
+}
+
+/* Signup Card */
+.signup-card {
+  width: 460px;
+  padding: 42px 38px;
+
+  background: var(--white);
+  border-radius: 20px;
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-strong);
+  backdrop-filter: blur(14px);
+
+  animation: fadeUp 0.35s ease;
+}
+
+/* Fade in */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Title */
+.page-title {
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--mint-dark);
+  margin-bottom: 10px;
+}
+
+/* Form fields */
+.form-group {
+  margin-bottom: 22px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--text-dark);
+}
+
+/* Input */
+.input {
+  padding: 14px 16px;
+  border: 1px solid var(--border-light);
+  border-radius: 14px;
+
+  font-size: 15px;
+  background: var(--white);
+}
+
+.input:focus {
+  border-color: var(--mint-dark);
+  box-shadow: 0 0 0 3px rgba(47,218,194,0.25);
+  outline: none;
+}
+
+/* Button */
+.btn-mint {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: 700;
+  box-shadow: var(--shadow-soft);
+  cursor: pointer;
+  border: none;
+}
+
+.btn-mint:hover {
+  transform: translateY(-2px);
+}
+
+/* Utilities */
+.text-center {
+  text-align: center;
+}
+
+.text-light {
+  color: var(--text-light);
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+/* Glass Background */
+.glass {
+  background: rgba(255, 255, 255, 0.54);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(12px);
+}

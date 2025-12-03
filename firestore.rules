@@ -1,0 +1,24 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Career Subscribers Collection
+    match /career_subscribers/{document} {
+      allow create: if request.resource.data.email.matches('^[^@]+@[^@]+\\.[^@]+$')
+                    && request.resource.data.is_verified == false
+                    && request.resource.data.subscribed_at is timestamp;
+      allow read, update, delete: if false; 
+    }
+
+    // User Profiles (Critical Fix)
+    match /users/{userId} {
+      // Allow users to read and write only their own document
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+    
+    // Other collections...
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
